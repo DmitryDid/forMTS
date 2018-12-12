@@ -61,10 +61,16 @@ public class Core {
         logger.logInfo("Проверка:");
         filter.sortBy("По возрастанию цены");
 
-        expectedProductName = catalog.getFirstItemName();
-        expectedProductPrice = catalog.getFirstItemPrice();
-
+        try {
+            expectedProductName = catalog.getFirstItemName();
+            expectedProductPrice = catalog.getFirstItemPrice();
+        } catch (IndexOutOfBoundsException e) {
+            logger.logInfo(driver.findElement(By.xpath("//div[@class='null-result']//p")).getText());
+            return;
+        }
         filter.sortBy("По убыванию цены");
+
+        catalog.goToTheLastPage();
 
         actualProductName = catalog.getLastItemName();
         actualProductPrice = catalog.getLastItemPrice();
