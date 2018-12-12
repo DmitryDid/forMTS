@@ -76,7 +76,7 @@ public class Core {
         actualProductPrice = catalog.getLastItemPrice();
 
         logger.logInfo("   - Проверяем эквавалентность данных");
-        Assert.assertEquals(expectedProductName, actualProductName);
         Assert.assertEquals(expectedProductPrice, actualProductPrice);
+        Assert.assertEquals(expectedProductName, actualProductName);
     }
 }
