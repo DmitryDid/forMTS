@@ -1,13 +1,13 @@
 package dns.tests;
 
 import dns.core.Core;
-import org.junit.Assert;
 import org.junit.Test;
 
-public class dnsTest extends Core {
+public class DNSTest extends Core {
 
     @Test
     public void sorting_into_laptops_category() {
+
         logger.logInfo("Подготовка данных для теста:");
 
         menu.selectCategory("Ноутбуки и планшеты");
@@ -22,8 +22,9 @@ public class dnsTest extends Core {
         checkCatalogSort();
     }
 
-    @Test
+    @Test (expected = IndexOutOfBoundsException.class)
     public void sorting_zero_item() {
+
         logger.logInfo("Подготовка данных для теста:");
 
         menu.selectCategory("Ноутбуки и планшеты");
@@ -40,6 +41,7 @@ public class dnsTest extends Core {
 
     @Test
     public void sorting_many_item() {
+
         logger.logInfo("Подготовка данных для теста:");
 
         menu.selectCategory("Ноутбуки и планшеты");
@@ -56,6 +58,7 @@ public class dnsTest extends Core {
 
     @Test
     public void sorting_into_other_category() {
+
         logger.logInfo("Подготовка данных для теста:");
 
         menu.selectCategory("Телевизоры и медиа");

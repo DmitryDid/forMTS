@@ -58,16 +58,14 @@ public class Core {
     }
 
     protected void checkCatalogSort() {
+
         logger.logInfo("Проверка:");
+
         filter.sortBy("По возрастанию цены");
 
-        try {
-            expectedProductName = catalog.getFirstItemName();
-            expectedProductPrice = catalog.getFirstItemPrice();
-        } catch (IndexOutOfBoundsException e) {
-            logger.logInfo(driver.findElement(By.xpath("//div[@class='null-result']//p")).getText());
-            return;
-        }
+        expectedProductName = catalog.getFirstItemName();
+        expectedProductPrice = catalog.getFirstItemPrice();
+
         filter.sortBy("По убыванию цены");
 
         catalog.goToTheLastPage();
